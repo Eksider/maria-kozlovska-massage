@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://eksider.github.io/maria-kozlovska-massage/sitemap.xml

@@ -184,7 +184,6 @@ img { max-width: 100%; display: block; }
   left: 50%;
   top: 50%;
   width: min(60vw, 420px);
-  height: auto;
   transform: translate(-50%, 70vh) scale(1.05);
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.35));
   -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 96%);
@@ -540,20 +539,4 @@ img { max-width: 100%; display: block; }
 
   .hero-wrapper { height: 220vh; }
   .hero-content { padding-top: 72px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-
-  .hero-wrapper { height: 100vh; }
-  .hero-hands,
-  .scroll-hint { display: none; }
-  .hero-content { opacity: 1 !important; }
-
-  .site-nav {
-    transform: translateY(0);
-    border-bottom-color: var(--color-line);
-  }
-
-  .scroll-arrow { animation: none; }
 }
