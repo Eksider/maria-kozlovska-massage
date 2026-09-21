@@ -5,12 +5,12 @@
   var scrollHint = document.getElementById('scrollHint');
   var siteNav = document.getElementById('siteNav');
 
-  var START_Y = 72;  // vh, hands start below the viewport
+  var START_Y = 58;  // vh, hands start just below the viewport
   var END_Y = -12;   // vh, resting position on the upper back/shoulders
 
-  var ARRIVE_END = 0.35; // 0-35% of scroll: hands travel up onto the back
-  var HOLD_END = 0.75;   // 35-75%: hands stay put, fully visible
-  // 75-100%: hands fade out as the page hands off to the main content
+  var ARRIVE_END = 0.16; // 0-16% of scroll: hands quickly travel up onto the back
+  var HOLD_END = 0.78;   // 16-78%: hands stay put, fully visible
+  // 78-100%: hands fade out as the page hands off to the main content
 
   function clamp(value, min, max) {
     return Math.min(max, Math.max(min, value));
