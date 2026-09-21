@@ -5,8 +5,12 @@
   var scrollHint = document.getElementById('scrollHint');
   var siteNav = document.getElementById('siteNav');
 
-  var START_Y = 72; // vh, hands start below the viewport
-  var END_Y = -18;  // vh, hands end above the viewport (near shoulders)
+  var START_Y = 72;  // vh, hands start below the viewport
+  var END_Y = -12;   // vh, resting position on the upper back/shoulders
+
+  var ARRIVE_END = 0.35; // 0-35% of scroll: hands travel up onto the back
+  var HOLD_END = 0.75;   // 35-75%: hands stay put, fully visible
+  // 75-100%: hands fade out as the page hands off to the main content
 
   function clamp(value, min, max) {
     return Math.min(max, Math.max(min, value));
@@ -19,9 +23,10 @@
     var scrolledInto = -heroWrapper.getBoundingClientRect().top;
     var progress = scrollable > 0 ? clamp(scrolledInto / scrollable, 0, 1) : 0;
 
-    var y = START_Y + (END_Y - START_Y) * progress;
-    var scale = 1.05 - 0.18 * progress;
-    var handsOpacity = progress > 0.82 ? clamp(1 - (progress - 0.82) / 0.18, 0, 1) : 1;
+    var arriveT = clamp(progress / ARRIVE_END, 0, 1);
+    var y = START_Y + (END_Y - START_Y) * arriveT;
+    var scale = 1.05 - 0.18 * arriveT;
+    var handsOpacity = progress > HOLD_END ? clamp(1 - (progress - HOLD_END) / (1 - HOLD_END), 0, 1) : 1;
 
     hands.style.transform = 'translate(-50%, ' + y + 'vh) scale(' + scale + ')';
     hands.style.opacity = handsOpacity;
