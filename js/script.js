@@ -70,11 +70,13 @@
   var LANG_KEY = 'site-lang';
   var TITLES = {
     uk: "Марія Козловська — масажистка",
-    en: "Maria Kozlovska — Massage Therapist"
+    en: "Maria Kozlovska — Massage Therapist",
+    et: "Maria Kozlovska — massöör"
   };
   var DESCRIPTIONS = {
     uk: "Приватна масажна студія. Класичний, загальний та антицелюлітний масаж. Запис онлайн.",
-    en: "Private massage studio. Classic, full-body and anti-cellulite massage. Book online."
+    en: "Private massage studio. Classic, full-body and anti-cellulite massage. Book online.",
+    et: "Privaatne massaažistuudio. Klassikaline, terve keha ja antitselluliidi massaaž. Broneeri veebis."
   };
   var langButtons = document.querySelectorAll('.lang-btn');
 
@@ -85,13 +87,13 @@
     var metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', DESCRIPTIONS[lang] || DESCRIPTIONS.uk);
 
-    document.querySelectorAll('[data-uk-html], [data-en-html]').forEach(function (el) {
-      var html = lang === 'en' ? el.getAttribute('data-en-html') : el.getAttribute('data-uk-html');
+    document.querySelectorAll('[data-' + lang + '-html]').forEach(function (el) {
+      var html = el.getAttribute('data-' + lang + '-html');
       if (html) el.innerHTML = html;
     });
 
-    document.querySelectorAll('[data-uk], [data-en]').forEach(function (el) {
-      var text = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-uk');
+    document.querySelectorAll('[data-' + lang + ']').forEach(function (el) {
+      var text = el.getAttribute('data-' + lang);
       if (text) el.textContent = text;
     });
 
