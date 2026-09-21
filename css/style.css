@@ -184,6 +184,7 @@ img { max-width: 100%; display: block; }
   left: 50%;
   top: 50%;
   width: min(60vw, 420px);
+  height: auto;
   transform: translate(-50%, 70vh) scale(1.05);
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.35));
   -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 96%);
